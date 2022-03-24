@@ -33,7 +33,7 @@ const USER_TABLE = {
   name: "user",
   fields: {
     id: "id",
-    homeOrganization: "home_organization",
+    homeOrganizationId: "home_organization_id",
     eduId: "edu_id",
     firstName: "first_name",
     lastName: "last_name",
@@ -81,7 +81,7 @@ const DICTIONARY = {
 class User {
   constructor({
     id,
-    home_organization,
+    home_organization_id,
     edu_id,
     first_name,
     last_name,
@@ -91,7 +91,7 @@ class User {
     preferences,
   }) {
     this.id = id;
-    this.homeOrganization = home_organization;
+    this.homeOrganizationId = home_organization_id;
     this.eduId = edu_id;
     this.firstName = first_name;
     this.lastName = last_name;
@@ -131,7 +131,7 @@ class Tag {
 class UserDB {
   constructor({
     id,
-    homeOrganization,
+    homeOrganizationId,
     eduId,
     firstName,
     lastName,
@@ -141,7 +141,7 @@ class UserDB {
     preferences,
   }) {
     this.id = id;
-    this.home_organization = homeOrganization;
+    this.home_organization_id = homeOrganizationId;
     this.edu_id = eduId;
     this.first_name = firstName;
     this.last_name = lastName;

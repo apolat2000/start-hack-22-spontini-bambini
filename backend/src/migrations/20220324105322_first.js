@@ -21,7 +21,7 @@ exports.up = async function (knex) {
         .defaultTo(knex.raw("uuid_generate_v4()"));
 
       table
-        .uuid(USER_TABLE.fields.homeOrganization)
+        .uuid(USER_TABLE.fields.homeOrganizationId)
         .defaultTo(knex.raw("uuid_generate_v4()"));
 
       table
