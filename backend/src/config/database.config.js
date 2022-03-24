@@ -1,6 +1,7 @@
 module.exports = {
-  host: process.env.MYSQL_HOST || "localhost",
-  port: process.env.MYSQL_PORT || 3306,
-  user: process.env.MYSQL_USER || "root",
-  password: process.env.MYSQL_PASSWORD || "",
+  host: process.env.POSTGRESQL_HOST || "localhost",
+  port: process.env.POSTGRESQL_PORT || 5432,
+  user: process.env.POSTGRESQL_USER || "postgres",
+  password: process.env.POSTGRESQL_PASSWORD || "postgres",
+  database: process.env.POSTGRESQL_DATABASE || "postgres",
 };

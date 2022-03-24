@@ -1,18 +1,20 @@
-const { databaseConfig } = require("../../config");
+require("dotenv").config();
+const { databaseConfig } = require("./config");
 
-const knex = require("knex")({
+module.exports = {
   client: "pg",
   connection: {
     host: databaseConfig.host,
-    port: databaseConfig.port,
     user: databaseConfig.user,
     password: databaseConfig.password,
     database: databaseConfig.database,
     charset: databaseConfig.charset,
   },
-  migrations: {
-    tableName: "migrations",
+  pool: {
+    min: 2,
+    max: 10,
   },
-});
-
-module.exports = knex;
+  migrations: {
+    tableName: "knex_migrations",
+  },
+};

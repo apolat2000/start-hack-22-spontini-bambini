@@ -17,7 +17,15 @@ const ORGANIZATION_TABLE = {
     name: "name",
     postalAddress: "postal_address",
     type: "type",
-    tags: "tags",
+  },
+};
+
+const ORGANIZATION_TAGS_TABLE = {
+  name: "organization_tags",
+  fields: {
+    organizationId: "organization_id",
+    tag: "tag",
+    type: "type",
   },
 };
 
@@ -25,14 +33,19 @@ const USER_TABLE = {
   name: "user",
   fields: {
     id: "id",
-    homeOrganization: "home_organization",
+    homeOrganizationId: "home_organization_id",
     eduId: "edu_id",
     firstName: "first_name",
     lastName: "last_name",
     email: "email",
     mobilePhone: "mobile_phone",
-    orcid: "orcid",
-    // TODO: Quality (?)
+  },
+};
+
+const TAG_TABLE = {
+  name: "tag",
+  fields: {
+    name: "name",
   },
 };
 
@@ -40,36 +53,46 @@ const DICTIONARY = {
   eventTypes: {
     join: "join",
     leave: "leave",
-    promote: "promote",
-    demote: "demote",
+    newRole: "new_role",
     startSuspend: "start_suspend",
     stopSuspend: "stop_suspend",
   },
+  prettyEventTypes: {
+    join: "Joined",
+    leave: "Left",
+    newRole: "Promoted to new role",
+    startSuspend: "Decided to pause for a while",
+    stopSuspend: "Came back to work",
+  },
   organizationTypes: {
     npo: "NPO",
-    universitySpinOff: "university_spin_off",
+    universitySpinOff: "UNIVERSITY_SPIN_OFF",
+    university: "UNIVERSITY",
+  },
+  organizationTagsTypes: {
+    skill: "skill",
+    branch: "branch",
+    value: "value",
   },
 };
 
 class User {
   constructor({
     id,
-    home_organization,
+    home_organization_id,
     edu_id,
     first_name,
     last_name,
     email,
     mobile_phone,
-    orcid,
   }) {
     this.id = id;
-    this.homeOrganization = home_organization;
+    this.homeOrganizationId = home_organization_id;
     this.eduId = edu_id;
     this.firstName = first_name;
     this.lastName = last_name;
     this.email = email;
     this.mobilePhone = mobile_phone;
-    this.orcid = orcid;
   }
 }
 
@@ -85,34 +108,37 @@ class Event {
 }
 
 class Organization {
-  constructor({ id, name, postal_address, type, tags }) {
+  constructor({ id, name, postal_address, type }) {
     this.id = id;
     this.name = name;
     this.postalAddress = postal_address;
     this.type = type;
-    this.tags = tags;
+  }
+}
+
+class Tag {
+  constructor({ name }) {
+    this.name = name;
   }
 }
 
 class UserDB {
   constructor({
     id,
-    homeOrganization,
+    homeOrganizationId,
     eduId,
     firstName,
     lastName,
     email,
     mobilePhone,
-    orcid,
   }) {
     this.id = id;
-    this.home_organization = homeOrganization;
+    this.home_organization_id = homeOrganizationId;
     this.edu_id = eduId;
     this.first_name = firstName;
     this.last_name = lastName;
     this.email = email;
     this.mobile_phone = mobilePhone;
-    this.orcid = orcid;
   }
 }
 
@@ -128,23 +154,25 @@ class EventDB {
 }
 
 class OrganizationDB {
-  constructor({ id, name, postalAddress, type, tags }) {
+  constructor({ id, name, postalAddress, type }) {
     this.id = id;
     this.name = name;
     this.postal_address = postalAddress;
     this.type = type;
-    this.tags = tags;
   }
 }
 
 module.exports = {
   EVENT_TABLE,
   ORGANIZATION_TABLE,
+  ORGANIZATION_TAGS_TABLE,
   USER_TABLE,
+  TAG_TABLE,
   DICTIONARY,
   User,
   Event,
   Organization,
+  Tag,
   UserDB,
   EventDB,
   OrganizationDB,
