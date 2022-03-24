@@ -14,6 +14,16 @@ const selectEventById = ({ eventId }) =>
     .where({ [EVENT_TABLE.fields.id]: eventId })
     .first();
 
+const selectAllOrganizationsByUserId = async ({ userId }) =>
+  database(EVENT_TABLE.name)
+    .where({ [EVENT_TABLE.fields.issuerId]: userId })
+    .distinctOn(EVENT_TABLE.fields.targetId)
+    .rightJoin(
+      ORGANIZATION_TABLE.name,
+      `${EVENT_TABLE.name}.${EVENT_TABLE.fields.targetId}`,
+      `${ORGANIZATION_TABLE.name}.${ORGANIZATION_TABLE.fields.id}`
+    );
+
 const selectLastEventByIssuerAndTarget = async ({ issuerId, targetId }) =>
   database(EVENT_TABLE.name)
     .where({
@@ -43,4 +53,5 @@ module.exports = {
   selectEventById,
   selectLastEventByIssuerAndTarget,
   selectAllEventsByIssuerAndTarget,
+  selectAllOrganizationsByUserId,
 };
