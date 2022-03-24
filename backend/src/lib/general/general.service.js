@@ -20,12 +20,13 @@ const selectLastEventByIssuerAndTarget = async ({ issuerId, targetId }) =>
       [EVENT_TABLE.fields.issuerId]: issuerId,
       [EVENT_TABLE.fields.targetId]: targetId,
       [EVENT_TABLE.fields.timestamp]: (
-        await database(TABLE_EVENT.name)
-          .max(`${TABLE_EVENT.fields.timestamp} as max`)
+        await database(EVENT_TABLE.name)
+          .max(`${EVENT_TABLE.fields.timestamp} as max`)
           .where({
             [EVENT_TABLE.fields.issuerId]: issuerId,
             [EVENT_TABLE.fields.targetId]: targetId,
           })
+          .first()
       ).max,
     })
     .first();
