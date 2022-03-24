@@ -7,6 +7,7 @@ const express = require("express");
 const cors = require("cors");
 const compression = require("compression");
 const helmet = require("helmet");
+const bodyParser = require("body-parser");
 
 // Load internal packages
 const config = require("./config");
@@ -23,6 +24,9 @@ app.use(cors(config.corsConfig));
 
 // Setup compression for response bodies
 app.use(compression());
+
+// access to req.body
+app.use(bodyParser.json());
 
 // Setup demo index route
 app.get("/", function (req, res) {
