@@ -39,8 +39,6 @@ const USER_TABLE = {
     lastName: "last_name",
     email: "email",
     mobilePhone: "mobile_phone",
-    orcid: "orcid",
-    // TODO: Quality (?)
   },
 };
 
@@ -87,7 +85,6 @@ class User {
     last_name,
     email,
     mobile_phone,
-    orcid,
     preferences,
   }) {
     this.id = id;
@@ -97,7 +94,6 @@ class User {
     this.lastName = last_name;
     this.email = email;
     this.mobilePhone = mobile_phone;
-    this.orcid = orcid;
     this.preferences = preferences;
   }
 }
@@ -137,7 +133,6 @@ class UserDB {
     lastName,
     email,
     mobilePhone,
-    orcid,
     preferences,
   }) {
     this.id = id;
@@ -147,7 +142,6 @@ class UserDB {
     this.last_name = lastName;
     this.email = email;
     this.mobile_phone = mobilePhone;
-    this.orcid = orcid;
     this.preferences = preferences;
   }
 }
