@@ -85,7 +85,6 @@ class User {
     last_name,
     email,
     mobile_phone,
-    preferences,
   }) {
     this.id = id;
     this.homeOrganizationId = home_organization_id;
@@ -94,7 +93,6 @@ class User {
     this.lastName = last_name;
     this.email = email;
     this.mobilePhone = mobile_phone;
-    this.preferences = preferences;
   }
 }
 
@@ -133,7 +131,6 @@ class UserDB {
     lastName,
     email,
     mobilePhone,
-    preferences,
   }) {
     this.id = id;
     this.home_organization_id = homeOrganizationId;
@@ -142,7 +139,6 @@ class UserDB {
     this.last_name = lastName;
     this.email = email;
     this.mobile_phone = mobilePhone;
-    this.preferences = preferences;
   }
 }
 
