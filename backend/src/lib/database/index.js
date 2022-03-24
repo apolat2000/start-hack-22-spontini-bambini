@@ -10,6 +10,9 @@ const knex = require("knex")({
     database: databaseConfig.database,
     charset: databaseConfig.charset,
   },
+  migrations: {
+    tableName: "migrations",
+  },
 });
 
 module.exports = knex;
