@@ -8,5 +8,7 @@ class UnauthenticatedState extends AuthState {}
 class AuthenticatedState extends AuthState {
   final String jwt;
 
+  String get publicID => "max-mustermann-123-456";
+
   AuthenticatedState(this.jwt);
 }
