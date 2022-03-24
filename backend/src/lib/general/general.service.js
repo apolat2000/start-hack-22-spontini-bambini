@@ -54,10 +54,23 @@ const insertEvent = async ({ issuerId, targetId, type, payload }) =>
     new EventDB({ timestamp: Date.now(), issuerId, type, targetId, payload })
   );
 
+const selectOrganizationById = ({ organizationId }) =>
+  database(ORGANIZATION_TABLE.name)
+    .where({
+      [ORGANIZATION_TABLE.fields.id]: organizationId,
+    })
+    .first();
+
+const selectAllTagsOfOrganization = ({ organizationId }) =>
+  database(ORGANIZATION_TAGS_TABLE.name).where({
+    [ORGANIZATION_TAGS_TABLE.fields.organizationId]: organizationId,
+  });
+
 module.exports = {
   selectEventById,
   selectLastEventByIssuerAndTarget,
   selectAllEventsByIssuerAndTarget,
   insertEvent,
   selectAllOrganizationsByUserId,
+  selectOrganizationById,
 };
