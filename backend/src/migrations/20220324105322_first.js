@@ -45,6 +45,7 @@ exports.up = async function (knex) {
         .enu(ORGANIZATION_TABLE.fields.type, [
           DICTIONARY.organizationTypes.npo,
           DICTIONARY.organizationTypes.universitySpinOff,
+          DICTIONARY.organizationTypes.university,
         ])
         .notNullable();
     })

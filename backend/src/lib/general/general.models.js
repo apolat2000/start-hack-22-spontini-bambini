@@ -68,7 +68,8 @@ const DICTIONARY = {
   },
   organizationTypes: {
     npo: "NPO",
-    universitySpinOff: "university_spin_off",
+    universitySpinOff: "UNIVERSITY_SPIN_OFF",
+    university: "UNIVERSITY",
   },
   organizationTagsTypes: {
     skill: "skill",
