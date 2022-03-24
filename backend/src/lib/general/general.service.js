@@ -49,9 +49,15 @@ const selectAllEventsByIssuerAndTarget = async ({ issuerId, targetId }) =>
     })
     .orderBy(EVENT_TABLE.fields.timestamp, "desc");
 
+const insertEvent = async ({ issuerId, targetId, type, payload }) =>
+  database(EVENT_TABLE.name).insert(
+    new EventDB({ timestamp: Date.now(), issuerId, type, targetId, payload })
+  );
+
 module.exports = {
   selectEventById,
   selectLastEventByIssuerAndTarget,
   selectAllEventsByIssuerAndTarget,
+  insertEvent,
   selectAllOrganizationsByUserId,
 };
