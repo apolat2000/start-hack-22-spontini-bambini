@@ -73,4 +73,5 @@ module.exports = {
   insertEvent,
   selectAllOrganizationsByUserId,
   selectOrganizationById,
+  selectAllTagsOfOrganization,
 };
