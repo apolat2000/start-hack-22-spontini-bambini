@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:frontend/backend/models/user.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_state.dart';

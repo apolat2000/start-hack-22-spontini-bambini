@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/backend/models/certificate.dart';
+import 'package:frontend/backend/repositories/CertificateRepoitory.dart';
 import 'package:frontend/frontend/AuthenticationWrapper.dart';
 import 'package:frontend/frontend/pages/HomePage.dart';
 import 'package:frontend/frontend/pages/LoginPage.dart';
+import 'package:oktoast/oktoast.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,10 +31,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: AuthenticationWrapper(
-        loginViewBuilder: (context) => const LoginPage(),
-        homePageBuilder: (context) => const HomePage(),
-      ),
+      home: MultiRepositoryProvider(
+          providers: [
+            RepositoryProvider(create: (context) => CertificateRepository())
+          ],
+          child: OKToast(
+            child: AuthenticationWrapper(
+              loginViewBuilder: (context) => const LoginPage(),
+              homePageBuilder: (context) => const HomePage(),
+            ),
+          )),
     );
   }
 }
