@@ -1,0 +1,33 @@
+{
+  "name": "start-hack-22-spontini-bambini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apolat2000/start-hack-22-spontini-bambini.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apolat2000/start-hack-22-spontini-bambini/issues"
+  },
+  "homepage": "https://github.com/apolat2000/start-hack-22-spontini-bambini#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "knex": "^1.0.4",
+    "openid-client": "^5.1.4",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
