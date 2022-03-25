@@ -10,12 +10,17 @@ class HomeKompassView extends HomeState {
   int index() => 0;
 }
 
-class HomeShareIDView extends HomeState {
+class HomeCertifiateView extends HomeState {
   @override
   int index() => 1;
 }
 
-class HomeProfileView extends HomeState {
+class HomeShareIDView extends HomeState {
   @override
   int index() => 2;
+}
+
+class HomeProfileView extends HomeState {
+  @override
+  int index() => 3;
 }

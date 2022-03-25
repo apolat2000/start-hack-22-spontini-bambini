@@ -17,7 +17,7 @@ class CertificateRepository {
           "statistics",
         ],
         achievments: [
-          "Finished statistics courses with the bist grade",
+          "Finished statistics courses with the best grade",
         ]));
     result.add(Certificate(
         startDate: DateTime(2022, 03, 23),

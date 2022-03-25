@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/backend/home/home_cubit.dart';
+import 'package:frontend/frontend/pages/CertificatesPage.dart';
 import 'package:frontend/frontend/pages/CompassPage.dart';
 import 'package:frontend/frontend/pages/ProfilePage.dart';
 import 'package:frontend/frontend/pages/ShareIDPage.dart';
@@ -14,6 +15,8 @@ class HomePage extends StatelessWidget {
       return CompassPage();
     else if (state is HomeShareIDView)
       return ShareIDPage();
+    else if (state is HomeCertifiateView)
+      return CertificatesPage();
     else
       return ProfilePage();
   }
@@ -30,11 +33,15 @@ class HomePage extends StatelessWidget {
                 child: _page(context, state),
               ),
               BottomNavigationBar(
+                unselectedItemColor: Colors.black,
+                selectedItemColor: Theme.of(context).primaryColor,
                 currentIndex: state.index(),
                 onTap: BlocProvider.of<HomeCubit>(context).setPage,
-                items: const [
+                items: [
                   BottomNavigationBarItem(
                       icon: Icon(MdiIcons.mapSearch), label: "Compass"),
+                  BottomNavigationBarItem(
+                      icon: Icon(MdiIcons.certificate), label: "Certificates"),
                   BottomNavigationBarItem(
                       icon: Icon(MdiIcons.qrcode), label: "My ID"),
                   BottomNavigationBarItem(

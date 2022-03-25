@@ -2,7 +2,7 @@ class Certificate {
   Certificate(
       {this.organizationName,
       this.title,
-      this.achievments,
+      this.achievments = const [],
       this.topicList,
       this.skillsList,
       this.startDate,
