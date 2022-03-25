@@ -19,10 +19,7 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const AspectRatio(
-              aspectRatio: 2,
-              child: Placeholder(),
-            ),
+            Image.asset("assets/kompass.png"),
             const SizedBox(
               height: 80,
             ),
