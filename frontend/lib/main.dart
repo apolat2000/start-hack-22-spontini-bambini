@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/backend/models/certificate.dart';
+import 'package:frontend/backend/models/organization.dart';
 import 'package:frontend/backend/repositories/CertificateRepoitory.dart';
+import 'package:frontend/backend/repositories/OrganizationRepository.dart';
 import 'package:frontend/frontend/AuthenticationWrapper.dart';
 import 'package:frontend/frontend/pages/HomePage.dart';
 import 'package:frontend/frontend/pages/LoginPage.dart';
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MultiRepositoryProvider(
           providers: [
+            RepositoryProvider(create: (context) => OrganizationRepository()),
             RepositoryProvider(create: (context) => CertificateRepository())
           ],
           child: OKToast(

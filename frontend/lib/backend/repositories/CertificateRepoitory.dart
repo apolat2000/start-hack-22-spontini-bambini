@@ -45,7 +45,7 @@ class CertificateRepository {
         startDate: DateTime(2022, 01, 26),
         type: CertificateType.volunteerActivity,
         title: "Volunteer activities as Software Developer",
-        organizationName: "START Summit",
+        organizationName: "Aktion Sodis",
         topicList: ["education", "entrepreneurship", "OpenID Connect"],
         skillsList: ["flutter", "aws", "git", "ux/ui"]));
     result.add(Certificate(
