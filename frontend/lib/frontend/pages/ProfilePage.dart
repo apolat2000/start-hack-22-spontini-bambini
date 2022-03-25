@@ -45,32 +45,35 @@ class ProfilePage extends StatelessWidget {
     return Column(
       children: [
         AppBar(
-          title: Text(user.name),
+          title: ListTile(
+            title: Text(user.name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                )),
+            leading: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                MdiIcons.door,
+                color: Colors.transparent,
+              ),
+            ),
+            trailing: IconButton(
+              onPressed: () => BlocProvider.of<AuthCubit>(context).logOut(),
+              icon: Icon(
+                MdiIcons.door,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
         Expanded(
             child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           children: [
-            Row(
-              children: [
-                Expanded(
-                    child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.blue)),
-                  onPressed: () => notImplemented(),
-                  child: const Text("Settings"),
-                )),
-                const SizedBox(
-                  width: 20,
-                ),
-                Expanded(
-                    child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red)),
-                  onPressed: BlocProvider.of<AuthCubit>(context).logOut,
-                  child: const Text("Log out"),
-                )),
-              ],
+            SizedBox(
+              height: 0,
             ),
             _subtitle("Education"),
             Wrap(children: [
