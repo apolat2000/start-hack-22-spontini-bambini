@@ -16,7 +16,7 @@ class CertificatesPage extends StatelessWidget {
 
     return Column(children: [
       AppBar(
-        title: Text("Your compass"),
+        title: Text("Your certificates"),
       ),
       Expanded(
           child: ListView.builder(
